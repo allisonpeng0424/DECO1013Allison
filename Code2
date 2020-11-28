@@ -1,0 +1,74 @@
+from microbit import *
+import music
+import radio
+radio.on()
+display.show(Image.YES)
+sleep(500)
+
+clockwise = Image("99999:"
+                  "00009:"
+                  "09009:"
+                  "99990:"
+                  "09000:")
+anticlockwise = Image("99999:"
+                      "90000:"
+                      "90090:"
+                      "09999:"
+                      "00090:")
+forward = Image("09090:"
+                "99099:"
+                "00000:"
+                "99099:"
+                "09090:")
+backward = Image("99099:"
+                 "90009:"
+                 "00000:"
+                 "90009:"
+                 "99099:")
+wave = Image("00090:"
+			 "99999:"
+			 "00000:"
+			 "99999:"
+			 "09000:")
+while True:
+    g = radio.receive()
+   
+    if g == 'up':
+        music.play('c4:1')
+        display.show(Image.HEART)
+        sleep(300)
+    if g == 'down':
+        music.play('b3')
+        display.show(Image.ARROW_S)
+        sleep(300)
+    if g == 'left':
+        music.play('c4:1')
+        display.show(Image.ARROW_W)
+        sleep(300)
+    if g == 'right':
+        music.play('g3')
+        display.show(Image.ARROW_E)
+        sleep(300)
+    if g == 'forward':
+       music.play('c4:1')
+       display.show(forward)
+       sleep(300)
+    if g == 'backward':
+       music.play('c4:1')
+       display.show(backward)
+       sleep(300)
+    if g == 'clockwise':
+        music.play('c4:1')
+        display.show(clockwise)
+        sleep(300)
+    if g == 'anticlockwise':
+        music.play('c4:1')
+        display.show(anticlockwise)
+        sleep(300)
+    if g == 'wave':
+        music.play('c4:1')
+        display.show(wave)
+        sleep(300)
+    else:
+        display.clear()
+    sleep(300)
